@@ -7,3 +7,8 @@ class FileHandler:
 
     def read_book_refs_form_file(self):
         return []
+
+    def write_book_refs_to_file(self, references):
+        self.references = references
+        #Write the refs to file <- todo
+        

@@ -9,8 +9,7 @@ class App:
         #When the program starts filehandler gets references
         # from storage files and these are passed to refHandler
         self.fileHandler = FileHandler()
-        self.references = self.fileHandler.read_book_refs_form_file()
-        self.referenceHandler = ReferenceHandler(io, self.references)
+        self.referenceHandler = ReferenceHandler(io,self.fileHandler)
 
     def run(self):
         while True:
@@ -32,13 +31,12 @@ class App:
                     self.io.write("")
                     #Inputs go as parameters to the object generation methods
                     #self.referenceHandler.generate_book_reference_object()
-                    
+
                 except Exception as error:
                     self.io.write("Jotain meni vikaan")
             elif command == "2":
                 try:
                     self.referenceHandler.print_references()
-                    #self.io.write("Pitäs printata kaikki")
                     self.io.write("")
                 except Exception as error:
                     self.io.write("Jotain meni vikaan")
