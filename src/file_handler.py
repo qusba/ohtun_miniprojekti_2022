@@ -6,20 +6,23 @@ class FileHandler:
 
     def read_book_refs_from_file(self):
         #Format of the storage file:
-        #author;title;year;publisher
+        #key;author;title;year;publisher
         books_file = open("src/storage/book_references.csv", "r")
         lines = books_file.readlines()
-        for line in lines:
-            book_object = Bookref(line.split(";")[0],line.split(";")[1],
-                                int(line.split(";")[2]),line.split(";")[3])
-            self.references.append(book_object)
+        if len(lines) > 1:
+            for line in lines:
+                book_object = Bookref(line.split(";")[0],line.split(";")[1],
+                                    line.split(";")[2],int(line.split(";")[3]),
+                                    line.split(";")[4].strip())
+                self.references.append(book_object)
+        books_file.close()
         return self.references
 
     def write_book_refs_to_file(self, references):
         self.references = references
-        books_file = open("storage/book_references.csv", "w")
+        books_file = open("src/storage/book_references.csv", "w")
         for reference in self.references:
-            str_to_write = str(reference.author+";"+reference.title+";"+
-                                str(reference.year)+";"+reference.publisher)
+            str_to_write = str(reference.key+";"+reference.author+";"+reference.title+";"+
+                                str(reference.year)+";"+reference.publisher+"\n")
             books_file.write(str_to_write)
         books_file.close()

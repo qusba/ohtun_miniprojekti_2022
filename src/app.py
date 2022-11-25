@@ -27,17 +27,19 @@ class App:
                 #to be interactive because different refs
                 #have different fields
                 try:
+                    key = self.io.read("Avain: ")
                     author = self.io.read("Kirjailija: ")
                     title = self.io.read("Nimi: ")
                     year = self.io.read("Julkaisuvuosi: ")
                     publisher = self.io.read("Julkaisija: ")
 
                     #Inputs go as parameters to the object generation methods
-                    self.referenceHandler.generate_book_reference_object([author, title,
+                    self.referenceHandler.generate_book_reference_object([key, author, title,
                                                                         int(year), publisher])
                     self.io.write("")
 
                 except Exception as error:
+                    self.io.write(error)
                     self.io.write("\nJotain meni vikaan \n")
             elif command == "2":
                 try:
