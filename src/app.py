@@ -1,16 +1,13 @@
-from file_handler import FileHandler
-from reference_handler import ReferenceHandler
 
 
 class App:
-    def __init__(self, io):
+    def __init__(self, io, filehandler, referencehandler):
         self.io = io
 
         #When the program starts filehandler gets references
         # from storage files and these are passed to refHandler
-        books_file_path = "src/storage/book_references.csv"
-        self.fileHandler = FileHandler(books_file_path)
-        self.referenceHandler = ReferenceHandler(io,self.fileHandler)
+        self.fileHandler = filehandler
+        self.referenceHandler = referencehandler
 
     def run(self):
         while True:
