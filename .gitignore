@@ -4,5 +4,6 @@
 .tmp
 htmlcov
 coverage.xml
+src/storage/testing_storage.csv
 __pycache__/
 *.pyc

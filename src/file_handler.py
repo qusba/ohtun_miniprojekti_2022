@@ -5,12 +5,17 @@ class FileHandler:
     def __init__(self, books_file_path):
         self.references = []
         self.books_file_path = books_file_path
+    
+    def get_references(self):
+        #for testing
+        return self.references
 
     def read_book_refs_from_file(self):
         #Format of the storage file:
         #key;author;title;year;publisher
         books_file = open(self.books_file_path, "r")
         lines = books_file.readlines()
+
         if len(lines) > 0:
             for line in lines:
                 book_object = Bookref(line.split(";")[0],line.split(";")[1],

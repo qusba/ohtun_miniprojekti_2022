@@ -22,3 +22,8 @@ class ReferenceHandler:
     def print_references(self):
         for reference in self.references:
             self.io.write(reference.__str__())
+
+
+    def get_references(self):
+        #for testing
+        return self.references
