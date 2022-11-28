@@ -8,7 +8,8 @@ class App:
 
         #When the program starts filehandler gets references
         # from storage files and these are passed to refHandler
-        self.fileHandler = FileHandler()
+        books_file_path = "src/storage/book_references.csv"
+        self.fileHandler = FileHandler(books_file_path)
         self.referenceHandler = ReferenceHandler(io,self.fileHandler)
 
     def run(self):
