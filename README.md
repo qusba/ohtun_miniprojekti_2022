@@ -3,6 +3,7 @@
 
 [Product- ja Sprint backlog](https://docs.google.com/spreadsheets/d/1dSeB2DVMEAkoBBqOm-5AjHcTrGz0yfAUg2ushvxjXvA/edit#gid=0)
 
+[![codecov](https://codecov.io/gh/qusba/ohtun_miniprojekti_2022/branch/main/graph/badge.svg?token=X48HWMD7NB)](https://codecov.io/gh/qusba/ohtun_miniprojekti_2022)
 ### Definition of done
 * Testikattavuus on vähintään 80%
 * Ainakin yksi ryhmänjäsen, joka ei ole itse kirjoittanut sitä, on lukenut koodin
