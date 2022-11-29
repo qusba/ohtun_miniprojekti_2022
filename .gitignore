@@ -6,3 +6,7 @@ coverage.xml
 src/storage/testing_storage.csv
 __pycache__/
 *.pyc
+log.html
+output.xml
+report.html
+selenium-screenshot*
