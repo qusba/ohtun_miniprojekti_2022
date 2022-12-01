@@ -34,4 +34,50 @@ class Test_FileHandler(unittest.TestCase):
         refs_in_the_end = self.mock_filehandler.get_references()
         self.assertEqual(refs_in_the_beginning,refs_in_the_end)
 
+    def test_writing_ref_object_into_bib_file(self):
+        book = Bookref("avain","kirjailija","title",1,"kustantaja")
+        bib_file = open("src/storage/test.bib", "w")
+        self.mock_filehandler.write_ref_object_into_bibtext_file(book, bib_file)
+        bib_file.close()
 
+        bib_file = open("src/storage/test.bib", "r")
+        bib_file_lines = bib_file.readlines()
+        self.assertEqual(bib_file_lines[0],"@book{avain,\n")
+        self.assertEqual(bib_file_lines[1],"    author = {kirjailija},\n")
+        self.assertEqual(bib_file_lines[2],"    title = {title},\n")
+        self.assertEqual(bib_file_lines[3],"    year = {1},\n")
+        self.assertEqual(bib_file_lines[4],"    publisher = {kustantaja},\n")
+        self.assertEqual(bib_file_lines[5],"}\n")
+        self.assertEqual(bib_file_lines[6],"\n")
+        bib_file.close()
+
+    def test_writing_multiple_ref_objects_to_bib_file(self):
+        refs = [Bookref("avain","kirjailija","title",1,"kustantaja"),
+                Bookref("avain2","kirjailija2","title2",2,"kustantaja2")]
+        self.mock_filehandler.set_references(refs)
+        return_bit = self.mock_filehandler.write_bibtext_file("src/storage/test.bib")
+        self.assertAlmostEqual(return_bit, 1)
+
+        bib_file = open("src/storage/test.bib", "r")
+        bib_file_lines = bib_file.readlines()
+        self.assertEqual(bib_file_lines[0],"@book{avain,\n")
+        self.assertEqual(bib_file_lines[1],"    author = {kirjailija},\n")
+        self.assertEqual(bib_file_lines[2],"    title = {title},\n")
+        self.assertEqual(bib_file_lines[3],"    year = {1},\n")
+        self.assertEqual(bib_file_lines[4],"    publisher = {kustantaja},\n")
+        self.assertEqual(bib_file_lines[5],"}\n")
+        self.assertEqual(bib_file_lines[6],"\n")
+
+        self.assertEqual(bib_file_lines[7],"@book{avain2,\n")
+        self.assertEqual(bib_file_lines[8],"    author = {kirjailija2},\n")
+        self.assertEqual(bib_file_lines[9],"    title = {title2},\n")
+        self.assertEqual(bib_file_lines[10],"    year = {2},\n")
+        self.assertEqual(bib_file_lines[11],"    publisher = {kustantaja2},\n")
+        self.assertEqual(bib_file_lines[12],"}\n")
+        self.assertEqual(bib_file_lines[13],"\n")
+        bib_file.close()
+
+    def test_without_references_writing_bib_file_fails(self):
+        self.mock_filehandler.set_references([])
+        return_bit = self.mock_filehandler.write_bibtext_file("src/storage/test.bib")
+        self.assertAlmostEqual(return_bit, 0)

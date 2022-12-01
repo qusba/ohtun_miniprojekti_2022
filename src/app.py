@@ -35,10 +35,9 @@ class App:
                     #Inputs go as parameters to the object generation methods
                     self.referenceHandler.generate_book_reference_object([key, author, title,
                                                                         int(year), publisher])
-                    self.io.write("")
+                    self.io.write("\nViite lisätty \n")
 
                 except Exception as error:
-                    self.io.write(error)
                     self.io.write("\nJotain meni vikaan \n")
             elif command == "2":
                 try:
@@ -49,7 +48,10 @@ class App:
                     self.io.write("\nJotain meni vikaan \n")
             elif command == "3":
                 try:
-                    self.fileHandler.write_bibtext_file(self.bib_file_path)
-                    self.io.write("references.bib tiedosto luotu \n")
+                    return_bit = self.fileHandler.write_bibtext_file(self.bib_file_path)
+                    if return_bit == 0:
+                        self.io.write("Ei viitteitä \n")
+                    else:
+                        self.io.write("references.bib tiedosto luotu \n")
                 except Exception as error:
                     self.io.write("\nJotain meni vikaan \n")
