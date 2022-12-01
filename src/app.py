@@ -13,7 +13,7 @@ class App:
         while True:
             self.io.write("Syötä 1 lisätäksesi viite")
             self.io.write("Syötä 2 listataksesi kaikki viitteet")
-            self.io.write("Syötä 3 kirjoittaaksesi bibtext tiedosto")
+            self.io.write("Syötä 3 luodaksesi bibtext tiedosto")
             self.io.write("Paina enter lopettaaksesi")
             self.io.write("")
             command = self.io.read("Syötä komento: ")
@@ -50,5 +50,6 @@ class App:
             elif command == "3":
                 try:
                     self.fileHandler.write_bibtext_file(self.bib_file_path)
+                    self.io.write("references.bib tiedosto luotu \n")
                 except Exception as error:
                     self.io.write("\nJotain meni vikaan \n")
