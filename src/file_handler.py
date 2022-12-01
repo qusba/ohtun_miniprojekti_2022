@@ -33,3 +33,19 @@ class FileHandler:
                                 str(reference.year)+";"+reference.publisher+"\n")
             books_file.write(str_to_write)
         books_file.close()
+
+    def write_ref_object_into_bibtext_file(self, ref_object, file_to_write):
+        ref_object_fields = list(ref_object.__dict__.keys())
+        
+        str_to_write =str("@"+ref_object.type+"{"+ref_object.key+",\n")
+        for key in ref_object_fields[2:]:
+            str_to_write = str_to_write+("    "+key+" = {"+str(ref_object.__dict__[key])+"},\n")
+        str_to_write = str_to_write+"}\n\n"
+        
+        file_to_write.write(str_to_write)
+        
+    def write_bibtext_file(self, path_to_bibtext_file):
+        file = open(path_to_bibtext_file, "w")
+        for ref in self.references:
+            self.write_ref_object_into_bibtext_file(ref, file)
+        file.close()

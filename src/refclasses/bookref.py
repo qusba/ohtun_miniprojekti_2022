@@ -1,5 +1,6 @@
 class Bookref:
     def __init__(self, key: str, author: str, title: str, year: int, publisher: str ):
+        self.type = "book"
         self.key = key
         self.author = author
         self.title = title

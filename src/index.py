@@ -4,6 +4,7 @@ from reference_handler import ReferenceHandler
 from app import App
 
 def main():
+    bib_file_path = "references.bib"
     books_file_path = "src/storage/book_references.csv"
     console_io = ConsoleIO()
     filehandler = FileHandler(books_file_path)
