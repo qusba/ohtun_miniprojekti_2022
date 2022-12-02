@@ -3,6 +3,10 @@ class StubIO:
         self.inputs = inputs or []
         self.outputs  = []
     
+
+    def input_value(self,value):
+        self.inputs.append(value)
+
     def write(self, value):
         self.outputs.append(value)
     

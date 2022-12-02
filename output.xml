@@ -1,42 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.8.10 on linux)" generated="20221202 22:56:17.075" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.1 (Python 3.8.10 on linux)" generated="20221202 23:48:20.482" rpa="false" schemaversion="3">
 <suite id="s1" name="Src" source="/home/kasperka/ohtun_miniprojekti_2022/src">
 <suite id="s1-s1" name="Tests" source="/home/kasperka/ohtun_miniprojekti_2022/src/tests">
 <suite id="s1-s1-s1" name="Add New Reference" source="/home/kasperka/ohtun_miniprojekti_2022/src/tests/add_new_reference.robot">
-<test id="s1-s1-s1-t1" name="Add Book Reference" line="14">
-<kw name="Run With Parameters">
-<arg>${BOOKREFERENCE}</arg>
-<msg timestamp="20221202 22:56:17.098" level="FAIL">No keyword with name 'Run With Parameters' found.</msg>
-<status status="FAIL" starttime="20221202 22:56:17.098" endtime="20221202 22:56:17.098"/>
+<test id="s1-s1-s1-t1" name="Add Book Reference" line="13">
+<kw name="User Input" library="ReferenceLibrary">
+<arg>1</arg>
+<status status="PASS" starttime="20221202 23:48:20.505" endtime="20221202 23:48:20.505"/>
 </kw>
-<kw name="Print References">
-<status status="NOT RUN" starttime="20221202 22:56:17.099" endtime="20221202 22:56:17.099"/>
+<kw name="User Input" library="ReferenceLibrary">
+<arg>@{KEY}</arg>
+<status status="PASS" starttime="20221202 23:48:20.506" endtime="20221202 23:48:20.506"/>
 </kw>
-<kw name="Output Should Contain">
-<arg>"Clean Code"</arg>
-<status status="NOT RUN" starttime="20221202 22:56:17.101" endtime="20221202 22:56:17.101"/>
+<kw name="User Input" library="ReferenceLibrary">
+<arg>@{AUTHOR}</arg>
+<status status="PASS" starttime="20221202 23:48:20.506" endtime="20221202 23:48:20.507"/>
 </kw>
-<status status="FAIL" starttime="20221202 22:56:17.096" endtime="20221202 22:56:17.101">No keyword with name 'Run With Parameters' found.</status>
+<kw name="User Input" library="ReferenceLibrary">
+<arg>@{BOOK}</arg>
+<status status="PASS" starttime="20221202 23:48:20.507" endtime="20221202 23:48:20.507"/>
+</kw>
+<kw name="User Input" library="ReferenceLibrary">
+<arg>@{YEAR}</arg>
+<status status="PASS" starttime="20221202 23:48:20.507" endtime="20221202 23:48:20.507"/>
+</kw>
+<kw name="User Input" library="ReferenceLibrary">
+<arg>@{PUBLISHER}</arg>
+<status status="PASS" starttime="20221202 23:48:20.508" endtime="20221202 23:48:20.508"/>
+</kw>
+<kw name="Run Application With Inputs" library="ReferenceLibrary">
+<status status="PASS" starttime="20221202 23:48:20.508" endtime="20221202 23:48:20.508"/>
+</kw>
+<kw name="Print References" library="ReferenceLibrary">
+<status status="PASS" starttime="20221202 23:48:20.508" endtime="20221202 23:48:20.509"/>
+</kw>
+<kw name="Output Should Contain" library="ReferenceLibrary">
+<arg>\nViite lisätty \n</arg>
+<status status="PASS" starttime="20221202 23:48:20.509" endtime="20221202 23:48:20.509"/>
+</kw>
+<status status="PASS" starttime="20221202 23:48:20.505" endtime="20221202 23:48:20.509"/>
 </test>
-<status status="FAIL" starttime="20221202 22:56:17.092" endtime="20221202 22:56:17.101"/>
+<status status="PASS" starttime="20221202 23:48:20.500" endtime="20221202 23:48:20.509"/>
 </suite>
-<status status="FAIL" starttime="20221202 22:56:17.090" endtime="20221202 22:56:17.102"/>
+<status status="PASS" starttime="20221202 23:48:20.498" endtime="20221202 23:48:20.510"/>
 </suite>
-<status status="FAIL" starttime="20221202 22:56:17.076" endtime="20221202 22:56:17.103"/>
+<status status="PASS" starttime="20221202 23:48:20.483" endtime="20221202 23:48:20.511"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Src">Src</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1" name="Tests">Src.Tests</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="Add New Reference">Src.Tests.Add New Reference</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Src">Src</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">Src.Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Add New Reference">Src.Tests.Add New Reference</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20221202 22:56:17.095" level="ERROR">Error in file '/home/kasperka/ohtun_miniprojekti_2022/src/tests/resource.robot' on line 2: Library 'ReferenceLibrary' expected 3 arguments, got 0.</msg>
 </errors>
 </robot>
