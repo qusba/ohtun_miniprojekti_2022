@@ -13,7 +13,7 @@ class App:
         while True:
             self.io.write("Syötä 1 lisätäksesi viite")
             self.io.write("Syötä 2 listataksesi kaikki viitteet")
-            self.io.write("Syötä 3 kirjoittaaksesi bibtext tiedosto")
+            self.io.write("Syötä 3 luodaksesi bibtext tiedosto")
             self.io.write("Paina enter lopettaaksesi")
             self.io.write("")
             command = self.io.read("Syötä komento: ")
@@ -35,10 +35,9 @@ class App:
                     #Inputs go as parameters to the object generation methods
                     self.referenceHandler.generate_book_reference_object([key, author, title,
                                                                         int(year), publisher])
-                    self.io.write("")
+                    self.io.write("\nViite lisätty \n")
 
                 except Exception as error:
-                    self.io.write(error)
                     self.io.write("\nJotain meni vikaan \n")
             elif command == "2":
                 try:
@@ -49,6 +48,10 @@ class App:
                     self.io.write("\nJotain meni vikaan \n")
             elif command == "3":
                 try:
-                    self.fileHandler.write_bibtext_file(self.bib_file_path)
+                    return_bit = self.fileHandler.write_bibtext_file(self.bib_file_path)
+                    if return_bit == 0:
+                        self.io.write("Ei viitteitä \n")
+                    else:
+                        self.io.write("references.bib tiedosto luotu \n")
                 except Exception as error:
                     self.io.write("\nJotain meni vikaan \n")

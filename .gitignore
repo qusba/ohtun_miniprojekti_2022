@@ -4,5 +4,6 @@
 htmlcov
 coverage.xml
 src/storage/testing_storage.csv
+src/storage/test.bib
 __pycache__/
 *.pyc

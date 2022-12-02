@@ -9,6 +9,9 @@ class FileHandler:
     def get_references(self):
         #for testing
         return self.references
+    
+    def set_references(self, references):
+        self.references = references
 
     def read_book_refs_from_file(self):
         #Format of the storage file:
@@ -45,7 +48,11 @@ class FileHandler:
         file_to_write.write(str_to_write)
         
     def write_bibtext_file(self, path_to_bibtext_file):
-        file = open(path_to_bibtext_file, "w")
-        for ref in self.references:
-            self.write_ref_object_into_bibtext_file(ref, file)
-        file.close()
+        if len(self.references) == 0:
+            return 0
+        else:
+            file = open(path_to_bibtext_file, "w")
+            for ref in self.references:
+                self.write_ref_object_into_bibtext_file(ref, file)
+            file.close()
+            return 1
