@@ -20,6 +20,7 @@ class ReferenceHandler:
 
 
     def print_references(self):
+        self.references = self.fileHandler.read_book_refs_from_file()
         for reference in self.references:
             self.io.write(reference.__str__())
 

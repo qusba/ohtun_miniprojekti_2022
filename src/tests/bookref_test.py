@@ -15,4 +15,4 @@ class Test_Bookref(unittest.TestCase):
 
     def test_olio_printataan_oikein(self):
         printti = str(self.bookref)
-        self.assertEqual(printti,"author: Testinimi, title: Testititle, year: 1999, publisher: Testikustantaja")
+        self.assertEqual(printti,"key: Testiavain, author: Testinimi, title: Testititle, year: 1999, publisher: Testikustantaja")

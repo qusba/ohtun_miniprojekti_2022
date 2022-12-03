@@ -81,3 +81,22 @@ class Test_FileHandler(unittest.TestCase):
         self.mock_filehandler.set_references([])
         return_bit = self.mock_filehandler.write_bibtext_file("src/storage/test.bib")
         self.assertAlmostEqual(return_bit, 0)
+
+    def test_remove_reference_works(self):
+        file = open(self.path,"w")
+        file.write("Testiavain1;Testikirjailija;Testititle;1999;Testikustantaja"+"\n")
+        file.write("Testiavain2;Testikirjailija;Testititle;1999;Testikustantaja"+"\n")
+        file.close()
+        self.mock_filehandler.remove_reference_from_file("Testiavain2")
+        refs = self.mock_filehandler.read_book_refs_from_file()
+        self.assertEqual(len(refs),1)
+        self.assertEqual(refs[0].get_key(),"Testiavain1")
+
+    def test_remove_reference_doesnt_do_anything_with_wrong_key(self):
+        file = open(self.path,"w")
+        file.write("Testiavain;Testikirjailija;Testititle;1999;Testikustantaja"+"\n")
+        file.close()
+        self.mock_filehandler.remove_reference_from_file("Eilöydy")
+        refs = self.mock_filehandler.read_book_refs_from_file()
+        self.assertEqual(len(refs),1)
+        self.assertEqual(refs[0].get_key(),"Testiavain")

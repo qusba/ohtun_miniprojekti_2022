@@ -23,7 +23,7 @@ class Bookref:
         return self.publisher
 
     def __str__(self):
-        return f"author: {self.author}, title: {self.title}, year: {str(self.year)}, publisher: {self.publisher}"
+        return f"key: {self.key}, author: {self.author}, title: {self.title}, year: {str(self.year)}, publisher: {self.publisher}"
 
     def __lt__(self, other):
          return self.author < other.author

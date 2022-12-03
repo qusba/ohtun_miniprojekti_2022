@@ -14,6 +14,7 @@ class FileHandler:
         self.references = references
 
     def read_book_refs_from_file(self):
+        self.references = []
         #Format of the storage file:
         #key;author;title;year;publisher
         books_file = open(self.books_file_path, "r")
@@ -56,3 +57,26 @@ class FileHandler:
                 self.write_ref_object_into_bibtext_file(ref, file)
             file.close()
             return 1
+    
+    def remove_reference_from_file(self, ref_key):
+        #this method removes the wanted reference from the list and then rewrites the csv file without it
+        ref_list = self.read_book_refs_from_file()
+        rem_success = False
+        for ref in ref_list:
+            if ref.get_key() == ref_key:
+                ref_list.remove(ref)
+                rem_success = True
+                self.clear_for_rewrite()
+                self.write_book_refs_to_file(ref_list)
+                return rem_success
+        return rem_success
+    
+    def clear_for_rewrite(self):
+        #opening a csv file like this removes the content of the file
+        books_file = open(self.books_file_path, "w+")
+        books_file.close()
+        print("done")
+
+
+
+        

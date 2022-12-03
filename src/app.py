@@ -14,6 +14,7 @@ class App:
             self.io.write("Syötä 1 lisätäksesi viite")
             self.io.write("Syötä 2 listataksesi kaikki viitteet")
             self.io.write("Syötä 3 luodaksesi bibtext tiedosto")
+            self.io.write("Syötä 4 poistaaksesi viite avaimen perusteella")
             self.io.write("Paina enter lopettaaksesi")
             self.io.write("")
             command = self.io.read("Syötä komento: ")
@@ -53,5 +54,15 @@ class App:
                         self.io.write("Ei viitteitä \n")
                     else:
                         self.io.write("references.bib tiedosto luotu \n")
+                except Exception as error:
+                    self.io.write("\nJotain meni vikaan \n")
+            elif command == "4":
+                try:
+                    key = self.io.read("Poistettavan viitteen avain: ")
+                    rem_success = self.fileHandler.remove_reference_from_file(key)
+                    if rem_success == False:
+                        self.io.write("Ei vastaavaa viitettä \n")
+                    else:
+                        self.io.write("Viite poistettu \n")
                 except Exception as error:
                     self.io.write("\nJotain meni vikaan \n")

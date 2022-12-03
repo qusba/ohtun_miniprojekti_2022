@@ -38,6 +38,6 @@ class Test_ReferenceHandler(unittest.TestCase):
         self.mock_referencehandler.generate_book_reference_object(self.inputs)
         self.mock_referencehandler.print_references()
         printed = self.mock_io.get_log()[0]
-        self.assertEqual(printed,"author: Testikirjailija, title: Testititle, year: 1999, publisher: Testikustantaja")
+        self.assertEqual(printed,"key: Testiavain, author: Testikirjailija, title: Testititle, year: 1999, publisher: Testikustantaja")
 
 
