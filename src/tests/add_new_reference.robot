@@ -21,6 +21,18 @@ Add Book Reference
     Print References
     Output Should Contain  \nViite lisätty \n
 
+Add Book Reference With Empty Input
+    User Input  1
+    User Input  \
+    Run Application With Inputs
+    Output Should Contain  \nSyöte ei saa olla tyhjä\n
+
+Add Book Reference With Only Whitespace Input
+    User Input  1
+    User Input  ${SPACE}
+    Run Application With Inputs
+    Output Should Contain  \nSyöte ei saa olla tyhjä\n
+
 Add Book Reference With Negative Year
     User Input  1
     User Input  @{KEY}

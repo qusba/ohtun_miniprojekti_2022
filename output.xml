@@ -1,125 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.8.8 on win32)" generated="20221204 15:49:53.476" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.1 (Python 3.8.8 on win32)" generated="20221204 17:02:30.688" rpa="false" schemaversion="3">
 <suite id="s1" name="Tests" source="C:\Users\Kim\Desktop\Ohjelmistotuotanto\projekti\ohtun_miniprojekti_2022\src\tests">
 <suite id="s1-s1" name="Add New Reference" source="C:\Users\Kim\Desktop\Ohjelmistotuotanto\projekti\ohtun_miniprojekti_2022\src\tests\add_new_reference.robot">
 <test id="s1-s1-t1" name="Add Book Reference" line="13">
 <kw name="User Input" library="ReferenceLibrary">
 <arg>1</arg>
-<status status="PASS" starttime="20221204 15:49:53.543" endtime="20221204 15:49:53.544"/>
+<status status="PASS" starttime="20221204 17:02:30.750" endtime="20221204 17:02:30.752"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{KEY}</arg>
-<status status="PASS" starttime="20221204 15:49:53.545" endtime="20221204 15:49:53.545"/>
+<status status="PASS" starttime="20221204 17:02:30.753" endtime="20221204 17:02:30.753"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{AUTHOR}</arg>
-<status status="PASS" starttime="20221204 15:49:53.547" endtime="20221204 15:49:53.547"/>
+<status status="PASS" starttime="20221204 17:02:30.753" endtime="20221204 17:02:30.754"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{BOOK}</arg>
-<status status="PASS" starttime="20221204 15:49:53.548" endtime="20221204 15:49:53.548"/>
+<status status="PASS" starttime="20221204 17:02:30.754" endtime="20221204 17:02:30.754"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{YEAR}</arg>
-<status status="PASS" starttime="20221204 15:49:53.548" endtime="20221204 15:49:53.548"/>
+<status status="PASS" starttime="20221204 17:02:30.755" endtime="20221204 17:02:30.755"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{PUBLISHER}</arg>
-<status status="PASS" starttime="20221204 15:49:53.549" endtime="20221204 15:49:53.549"/>
+<status status="PASS" starttime="20221204 17:02:30.756" endtime="20221204 17:02:30.756"/>
 </kw>
 <kw name="Run Application With Inputs" library="ReferenceLibrary">
-<status status="PASS" starttime="20221204 15:49:53.550" endtime="20221204 15:49:53.550"/>
+<status status="PASS" starttime="20221204 17:02:30.756" endtime="20221204 17:02:30.757"/>
 </kw>
 <kw name="Print References" library="ReferenceLibrary">
-<status status="PASS" starttime="20221204 15:49:53.552" endtime="20221204 15:49:53.555"/>
+<status status="PASS" starttime="20221204 17:02:30.758" endtime="20221204 17:02:30.759"/>
 </kw>
 <kw name="Output Should Contain" library="ReferenceLibrary">
 <arg>\nViite lisätty \n</arg>
-<status status="PASS" starttime="20221204 15:49:53.556" endtime="20221204 15:49:53.556"/>
+<status status="PASS" starttime="20221204 17:02:30.760" endtime="20221204 17:02:30.760"/>
 </kw>
-<status status="PASS" starttime="20221204 15:49:53.543" endtime="20221204 15:49:53.557"/>
+<status status="PASS" starttime="20221204 17:02:30.749" endtime="20221204 17:02:30.760"/>
 </test>
-<test id="s1-s1-t2" name="Add Book Reference With Negative Year" line="24">
+<test id="s1-s1-t2" name="Add Book Reference With Empty Input" line="24">
 <kw name="User Input" library="ReferenceLibrary">
 <arg>1</arg>
-<status status="PASS" starttime="20221204 15:49:53.561" endtime="20221204 15:49:53.562"/>
+<status status="PASS" starttime="20221204 17:02:30.763" endtime="20221204 17:02:30.764"/>
+</kw>
+<kw name="User Input" library="ReferenceLibrary">
+<arg>\</arg>
+<status status="PASS" starttime="20221204 17:02:30.764" endtime="20221204 17:02:30.764"/>
+</kw>
+<kw name="Run Application With Inputs" library="ReferenceLibrary">
+<status status="PASS" starttime="20221204 17:02:30.765" endtime="20221204 17:02:30.765"/>
+</kw>
+<kw name="Output Should Contain" library="ReferenceLibrary">
+<arg>\nSyöte ei saa olla tyhjä\n</arg>
+<status status="PASS" starttime="20221204 17:02:30.765" endtime="20221204 17:02:30.765"/>
+</kw>
+<status status="PASS" starttime="20221204 17:02:30.762" endtime="20221204 17:02:30.766"/>
+</test>
+<test id="s1-s1-t3" name="Add Book Reference With Only Whitespace Input" line="30">
+<kw name="User Input" library="ReferenceLibrary">
+<arg>1</arg>
+<status status="PASS" starttime="20221204 17:02:30.769" endtime="20221204 17:02:30.771"/>
+</kw>
+<kw name="User Input" library="ReferenceLibrary">
+<arg>${SPACE}</arg>
+<status status="PASS" starttime="20221204 17:02:30.772" endtime="20221204 17:02:30.772"/>
+</kw>
+<kw name="Run Application With Inputs" library="ReferenceLibrary">
+<status status="PASS" starttime="20221204 17:02:30.772" endtime="20221204 17:02:30.773"/>
+</kw>
+<kw name="Output Should Contain" library="ReferenceLibrary">
+<arg>\nSyöte ei saa olla tyhjä\n</arg>
+<status status="PASS" starttime="20221204 17:02:30.773" endtime="20221204 17:02:30.773"/>
+</kw>
+<status status="PASS" starttime="20221204 17:02:30.768" endtime="20221204 17:02:30.773"/>
+</test>
+<test id="s1-s1-t4" name="Add Book Reference With Negative Year" line="36">
+<kw name="User Input" library="ReferenceLibrary">
+<arg>1</arg>
+<status status="PASS" starttime="20221204 17:02:30.776" endtime="20221204 17:02:30.777"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{KEY}</arg>
-<status status="PASS" starttime="20221204 15:49:53.563" endtime="20221204 15:49:53.563"/>
+<status status="PASS" starttime="20221204 17:02:30.778" endtime="20221204 17:02:30.778"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{AUTHOR}</arg>
-<status status="PASS" starttime="20221204 15:49:53.564" endtime="20221204 15:49:53.564"/>
+<status status="PASS" starttime="20221204 17:02:30.778" endtime="20221204 17:02:30.779"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{BOOK}</arg>
-<status status="PASS" starttime="20221204 15:49:53.565" endtime="20221204 15:49:53.565"/>
+<status status="PASS" starttime="20221204 17:02:30.779" endtime="20221204 17:02:30.779"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>-1</arg>
-<status status="PASS" starttime="20221204 15:49:53.566" endtime="20221204 15:49:53.566"/>
+<status status="PASS" starttime="20221204 17:02:30.779" endtime="20221204 17:02:30.780"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{PUBLISHER}</arg>
-<status status="PASS" starttime="20221204 15:49:53.567" endtime="20221204 15:49:53.567"/>
+<status status="PASS" starttime="20221204 17:02:30.780" endtime="20221204 17:02:30.780"/>
 </kw>
 <kw name="Run Application With Inputs" library="ReferenceLibrary">
-<status status="PASS" starttime="20221204 15:49:53.568" endtime="20221204 15:49:53.568"/>
+<status status="PASS" starttime="20221204 17:02:30.781" endtime="20221204 17:02:30.781"/>
 </kw>
 <kw name="Output Should Contain" library="ReferenceLibrary">
 <arg>\nJulkaisuvuoden tulee olla positiivinen luku\n</arg>
-<status status="PASS" starttime="20221204 15:49:53.569" endtime="20221204 15:49:53.569"/>
+<status status="PASS" starttime="20221204 17:02:30.781" endtime="20221204 17:02:30.781"/>
 </kw>
-<status status="PASS" starttime="20221204 15:49:53.560" endtime="20221204 15:49:53.570"/>
+<status status="PASS" starttime="20221204 17:02:30.775" endtime="20221204 17:02:30.782"/>
 </test>
-<test id="s1-s1-t3" name="Add Book Reference With String As Year" line="34">
+<test id="s1-s1-t5" name="Add Book Reference With String As Year" line="46">
 <kw name="User Input" library="ReferenceLibrary">
 <arg>1</arg>
-<status status="PASS" starttime="20221204 15:49:53.577" endtime="20221204 15:49:53.578"/>
+<status status="PASS" starttime="20221204 17:02:30.785" endtime="20221204 17:02:30.786"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{KEY}</arg>
-<status status="PASS" starttime="20221204 15:49:53.579" endtime="20221204 15:49:53.579"/>
+<status status="PASS" starttime="20221204 17:02:30.787" endtime="20221204 17:02:30.787"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{AUTHOR}</arg>
-<status status="PASS" starttime="20221204 15:49:53.580" endtime="20221204 15:49:53.580"/>
+<status status="PASS" starttime="20221204 17:02:30.787" endtime="20221204 17:02:30.788"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{BOOK}</arg>
-<status status="PASS" starttime="20221204 15:49:53.581" endtime="20221204 15:49:53.581"/>
+<status status="PASS" starttime="20221204 17:02:30.788" endtime="20221204 17:02:30.788"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>Otava</arg>
-<status status="PASS" starttime="20221204 15:49:53.582" endtime="20221204 15:49:53.582"/>
+<status status="PASS" starttime="20221204 17:02:30.788" endtime="20221204 17:02:30.789"/>
 </kw>
 <kw name="User Input" library="ReferenceLibrary">
 <arg>@{PUBLISHER}</arg>
-<status status="PASS" starttime="20221204 15:49:53.583" endtime="20221204 15:49:53.583"/>
+<status status="PASS" starttime="20221204 17:02:30.789" endtime="20221204 17:02:30.789"/>
 </kw>
 <kw name="Run Application With Inputs" library="ReferenceLibrary">
-<status status="PASS" starttime="20221204 15:49:53.584" endtime="20221204 15:49:53.584"/>
+<status status="PASS" starttime="20221204 17:02:30.790" endtime="20221204 17:02:30.790"/>
 </kw>
 <kw name="Output Should Contain" library="ReferenceLibrary">
 <arg>\nJulkaisuvuoden tulee olla positiivinen luku\n</arg>
-<status status="PASS" starttime="20221204 15:49:53.585" endtime="20221204 15:49:53.585"/>
+<status status="PASS" starttime="20221204 17:02:30.790" endtime="20221204 17:02:30.790"/>
 </kw>
-<status status="PASS" starttime="20221204 15:49:53.576" endtime="20221204 15:49:53.586"/>
+<status status="PASS" starttime="20221204 17:02:30.783" endtime="20221204 17:02:30.791"/>
 </test>
-<status status="PASS" starttime="20221204 15:49:53.519" endtime="20221204 15:49:53.589"/>
+<status status="PASS" starttime="20221204 17:02:30.730" endtime="20221204 17:02:30.793"/>
 </suite>
-<status status="PASS" starttime="20221204 15:49:53.478" endtime="20221204 15:49:53.594"/>
+<status status="PASS" starttime="20221204 17:02:30.690" endtime="20221204 17:02:30.796"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
-<stat pass="3" fail="0" skip="0" id="s1-s1" name="Add New Reference">Tests.Add New Reference</stat>
+<stat pass="5" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="5" fail="0" skip="0" id="s1-s1" name="Add New Reference">Tests.Add New Reference</stat>
 </suite>
 </statistics>
 <errors>

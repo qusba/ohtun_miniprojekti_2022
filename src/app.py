@@ -28,13 +28,28 @@ class App:
                 #have different fields
                 try:
                     key = self.io.read("Avain: ")
+                    if key.strip() == "":
+                        self.io.write("\nSyöte ei saa olla tyhjä\n")
+                        continue
                     author = self.io.read("Kirjailija: ")
+                    if author.strip() == "":
+                        self.io.write("\nSyöte ei saa olla tyhjä\n")
+                        continue
                     title = self.io.read("Nimi: ")
+                    if title.strip() == "":
+                        self.io.write("\nSyöte ei saa olla tyhjä\n")
+                        continue
                     year = self.io.read("Julkaisuvuosi: ")
+                    if key.strip() == "":
+                        self.io.write("\nSyöte ei saa olla tyhjä\n")
+                        continue
                     if year.isdigit() == False:
                         self.io.write("\nJulkaisuvuoden tulee olla positiivinen luku\n")
                         continue
                     publisher = self.io.read("Julkaisija: ")
+                    if publisher.strip() == "":
+                        self.io.write("\nSyöte ei saa olla tyhjä\n")
+                        continue
 
                     #Inputs go as parameters to the object generation methods
                     self.referenceHandler.generate_book_reference_object([key, author, title,
