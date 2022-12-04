@@ -7,7 +7,6 @@ class FileHandler:
         self.books_file_path = books_file_path
     
     def get_references(self):
-        #for testing
         return self.references
     
     def set_references(self, references):
@@ -22,7 +21,7 @@ class FileHandler:
 
         if len(lines) > 0:
             for line in lines:
-                book_object = Bookref(line.split(";")[0],line.split(";")[1],
+                book_object = Bookref(str(line.split(";")[0]),line.split(";")[1],
                                     line.split(";")[2],int(line.split(";")[3]),
                                     line.split(";")[4].strip())
                 self.references.append(book_object)
@@ -75,7 +74,7 @@ class FileHandler:
         #opening a csv file like this removes the content of the file
         books_file = open(self.books_file_path, "w+")
         books_file.close()
-        print("done")
+        #print("done")
 
 
 

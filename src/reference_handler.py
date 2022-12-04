@@ -14,7 +14,7 @@ class ReferenceHandler:
         #After that send the ref to filehandler for storing
         #(In this model all references are
         # written to the file when new one is added)
-        book_object = Bookref(inputs[0],inputs[1],inputs[2],int(inputs[3]), inputs[4])
+        book_object = Bookref(str(inputs[0]),inputs[1],inputs[2],int(inputs[3]), inputs[4])
         self.references.append(book_object)
         self.fileHandler.write_book_refs_to_file(self.references)
 

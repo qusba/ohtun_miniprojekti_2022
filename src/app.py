@@ -1,13 +1,14 @@
 
 
 class App:
-    def __init__(self, io, filehandler, referencehandler):
+    def __init__(self, io, filehandler, referencehandler, referencevalidator):
         self.io = io
         self.bib_file_path = "references.bib"
         #When the program starts filehandler gets references
         # from storage files and these are passed to refHandler
         self.fileHandler = filehandler
         self.referenceHandler = referencehandler
+        self.referenceValidator = referencevalidator
 
     def run(self):
         while True:
@@ -31,6 +32,10 @@ class App:
                     if key.strip() == "":
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
+                    if self.referenceValidator.does_this_key_already_exist(str(key),
+                                            self.fileHandler.get_references()) == True:
+                        self.io.write("\nTällä avaimella löytyy jo viite\n")
+                        continue
                     author = self.io.read("Kirjailija: ")
                     if author.strip() == "":
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
@@ -52,7 +57,7 @@ class App:
                         continue
 
                     #Inputs go as parameters to the object generation methods
-                    self.referenceHandler.generate_book_reference_object([key, author, title,
+                    self.referenceHandler.generate_book_reference_object([str(key), author, title,
                                                                         int(year), publisher])
                     self.io.write("\nViite lisätty \n")
 
