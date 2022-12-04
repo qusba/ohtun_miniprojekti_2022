@@ -20,3 +20,23 @@ Add Book Reference
     Run Application With Inputs
     Print References
     Output Should Contain  \nViite lisätty \n
+
+Add Book Reference With Negative Year
+    User Input  1
+    User Input  @{KEY}
+    User Input  @{AUTHOR}
+    User Input  @{BOOK}
+    User Input  -1
+    User Input  @{PUBLISHER}
+    Run Application With Inputs
+    Output Should Contain  \nJulkaisuvuoden tulee olla positiivinen luku\n
+
+Add Book Reference With String As Year
+    User Input  1
+    User Input  @{KEY}
+    User Input  @{AUTHOR}
+    User Input  @{BOOK}
+    User Input  Otava
+    User Input  @{PUBLISHER}
+    Run Application With Inputs
+    Output Should Contain  \nJulkaisuvuoden tulee olla positiivinen luku\n

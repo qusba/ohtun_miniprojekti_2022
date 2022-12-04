@@ -31,6 +31,9 @@ class App:
                     author = self.io.read("Kirjailija: ")
                     title = self.io.read("Nimi: ")
                     year = self.io.read("Julkaisuvuosi: ")
+                    if year.isdigit() == False:
+                        self.io.write("\nJulkaisuvuoden tulee olla positiivinen luku\n")
+                        continue
                     publisher = self.io.read("Julkaisija: ")
 
                     #Inputs go as parameters to the object generation methods
