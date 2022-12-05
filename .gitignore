@@ -7,3 +7,6 @@ src/storage/testing_storage.csv
 src/storage/test.bib
 __pycache__/
 *.pyc
+log.html
+output.xml
+report.html
