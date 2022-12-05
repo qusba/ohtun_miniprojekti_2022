@@ -49,7 +49,7 @@ class App:
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
                     if year.isdigit() == False:
-                        self.io.write("\nJulkaisuvuoden tulee olla positiivinen luku\n")
+                        self.io.write("\nJulkaisuvuoden tulee olla positiivinen kokonaisluku\n")
                         continue
                     publisher = self.io.read("Julkaisija: ")
                     if publisher.strip() == "":

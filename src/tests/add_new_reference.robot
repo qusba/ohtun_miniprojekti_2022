@@ -41,7 +41,7 @@ Add Book Reference With Negative Year
     User Input  -1
     User Input  @{PUBLISHER}
     Run Application With Inputs
-    Output Should Contain  \nJulkaisuvuoden tulee olla positiivinen luku\n
+    Output Should Contain  \nJulkaisuvuoden tulee olla positiivinen kokonaisluku\n
 
 Add Book Reference With String As Year
     User Input  1
@@ -51,7 +51,7 @@ Add Book Reference With String As Year
     User Input  Otava
     User Input  @{PUBLISHER}
     Run Application With Inputs
-    Output Should Contain  \nJulkaisuvuoden tulee olla positiivinen luku\n
+    Output Should Contain  \nJulkaisuvuoden tulee olla positiivinen kokonaisluku\n
 
 Add Book Reference With Existing Key
     User Input  1
