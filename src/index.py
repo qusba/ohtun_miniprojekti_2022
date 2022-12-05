@@ -8,9 +8,9 @@ def main():
     books_file_path = "src/storage/book_references.csv"
     console_io = ConsoleIO()
     filehandler = FileHandler(books_file_path)
-    reference_handler = ReferenceHandler(console_io, filehandler)
-    reference_validator = ValidateReference()
-    app = App(console_io, filehandler, reference_handler, reference_validator)
+    referencehandler = ReferenceHandler(console_io, filehandler)
+    referencevalidator = ValidateReference()
+    app = App(console_io, filehandler, referencehandler, referencevalidator)
     app.run()
 
 if __name__ == "__main__":

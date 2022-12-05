@@ -6,10 +6,14 @@ class ReferenceHandler:
         self.fileHandler = fileHandler
         self.references = self.fileHandler.read_book_refs_from_file()
 
+    def get_references(self):
+        return self.references
+
     #For every different ref object we need
     #different method because of the different
     #fields in references
     def generate_book_reference_object(self, inputs):
+        self.references = self.fileHandler.read_book_refs_from_file()
         #Generate ref
         #After that send the ref to filehandler for storing
         #(In this model all references are
@@ -23,8 +27,3 @@ class ReferenceHandler:
         self.references = self.fileHandler.read_book_refs_from_file()
         for reference in self.references:
             self.io.write(reference.__str__())
-
-
-    def get_references(self):
-        #for testing
-        return self.references
