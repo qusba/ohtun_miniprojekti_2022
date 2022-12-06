@@ -29,7 +29,7 @@ class App:
                 #have different fields
                 try:
                     key = self.io.read("Avain: ")
-                    if key.strip() == "":
+                    if self.referenceValidator.is_input_empty(key):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
                     if self.referenceValidator.does_this_key_already_exist(str(key),
@@ -37,22 +37,22 @@ class App:
                         self.io.write("\nTällä avaimella löytyy jo viite\n")
                         continue
                     author = self.io.read("Kirjailija: ")
-                    if author.strip() == "":
+                    if self.referenceValidator.is_input_empty(author):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
                     title = self.io.read("Nimi: ")
-                    if title.strip() == "":
+                    if self.referenceValidator.is_input_empty(title):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
                     year = self.io.read("Julkaisuvuosi: ")
-                    if key.strip() == "":
+                    if self.referenceValidator.is_input_empty(year):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
-                    if year.isdigit() == False:
+                    if not self.referenceValidator.is_input_a_number(year) or not self.referenceValidator.is_number_positive(year):
                         self.io.write("\nJulkaisuvuoden tulee olla positiivinen kokonaisluku\n")
                         continue
                     publisher = self.io.read("Julkaisija: ")
-                    if publisher.strip() == "":
+                    if self.referenceValidator.is_input_empty(publisher):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
 
@@ -63,6 +63,7 @@ class App:
 
                 except Exception as error:
                     self.io.write("\nJotain meni vikaan \n")
+            
             elif command == "2":
                 try:
                     self.io.write("")
@@ -70,6 +71,7 @@ class App:
                     self.io.write("")
                 except Exception as error:
                     self.io.write("\nJotain meni vikaan \n")
+            
             elif command == "3":
                 try:
                     return_bit = self.fileHandler.write_bibtext_file(self.bib_file_path)
@@ -79,6 +81,7 @@ class App:
                         self.io.write("references.bib tiedosto luotu \n")
                 except Exception as error:
                     self.io.write("\nJotain meni vikaan \n")
+            
             elif command == "4":
                 try:
                     key = self.io.read("Poistettavan viitteen avain: ")

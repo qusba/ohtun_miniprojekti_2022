@@ -17,8 +17,8 @@ class FileHandler:
         self.references = []
         # Format of the storage file:
         # key;author;title;year;publisher
-        books_file = open(self.books_file_path, "r")
-        lines = books_file.readlines()
+        with open(self.books_file_path, "r") as books_file:
+            lines = books_file.readlines()
 
         if len(lines) > 0:
             for line in lines:
@@ -32,12 +32,12 @@ class FileHandler:
 
     def write_book_refs_to_file(self, references):
         self.references = references
-        books_file = open(self.books_file_path, "w")
-        for reference in self.references:
-            str_to_write = str(reference.key+";"+reference.author+";"+reference.title+";" +
-                               str(reference.year)+";"+reference.publisher+"\n")
-            books_file.write(str_to_write)
-        books_file.close()
+        with open(self.books_file_path, "w") as books_file:
+            for reference in self.references:
+                str_to_write = str(reference.key+";"+reference.author+";"+reference.title+";" +
+                                   str(reference.year)+";"+reference.publisher+"\n")
+                books_file.write(str_to_write)
+            books_file.close()
 
     def write_ref_object_into_bibtext_file(self, ref_object, file_to_write):
         ref_object_fields = list(ref_object.__dict__.keys())
@@ -53,8 +53,7 @@ class FileHandler:
     def write_bibtext_file(self, path_to_bibtext_file):
         if len(self.references) == 0:
             return 0
-        else:
-            file = open(path_to_bibtext_file, "w")
+        with open(path_to_bibtext_file, "w") as file:
             for ref in self.references:
                 self.write_ref_object_into_bibtext_file(ref, file)
             file.close()
@@ -75,6 +74,5 @@ class FileHandler:
 
     def clear_for_rewrite(self):
         # opening a csv file like this removes the content of the file
-        books_file = open(self.books_file_path, "w+")
-        books_file.close()
-        # print("done")
+        with open(self.books_file_path, "w+") as books_file:
+            books_file.close()
