@@ -1,14 +1,6 @@
 *** Settings ***
 Resource  resource.robot
 
-*** Variables ***
-@{KEY}  Martin09
-@{AUTHOR}  Martin, Robert
-@{BOOK}  Clean Code: A Handbook of Agile Software Craftsmanship
-@{YEAR}  2008
-@{PUBLISHER}  Prentice Hall
-
-
 *** Test Cases ***
 Add Book Reference
     User Input  1
