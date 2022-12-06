@@ -1,7 +1,7 @@
 class ValidateReference:
     def __init__(self):
-        self.references = []
-
+        pass
+    
     def does_this_key_already_exist(self, input_key, references):
         for reference in references:
             key = reference.get_key()
