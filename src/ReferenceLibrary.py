@@ -1,3 +1,4 @@
+# pylint: disable=C0103
 from stub_io import StubIO
 from reference_handler import ReferenceHandler
 from file_handler import FileHandler
@@ -7,8 +8,8 @@ from app import App
 
 class ReferenceLibrary:
     def __init__(self):
-        file = open("src/storage/testing_storage.csv", "w")
-        file.close()
+        with open("src/storage/testing_storage.csv", "w") as file:
+            file.close()
 
         self._file_handler = FileHandler("src/storage/testing_storage.csv")
         self.stub_io = StubIO()
