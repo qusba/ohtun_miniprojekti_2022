@@ -10,3 +10,5 @@ class ValidateReference:
                 return True
         # False = There is no such key yet
         return False
+
+    #Other validations here?
