@@ -1,8 +1,9 @@
-
+import os
 
 class App:
     def __init__(self, io, filehandler, referencehandler, referencevalidator):
         self.io = io
+        self.cwd = os.getcwd()
         self.bib_file_path = "references.bib"
         #When the program starts filehandler gets references
         # from storage files and these are passed to refHandler
@@ -78,7 +79,7 @@ class App:
                     if return_bit == 0:
                         self.io.write("Ei viitteitä \n")
                     else:
-                        self.io.write("references.bib tiedosto luotu \n")
+                        self.io.write("references.bib tiedosto luotu sijaintiin "+str(self.cwd)+"\n")
                 except Exception as error:
                     self.io.write("\nJotain meni vikaan \n")
             
