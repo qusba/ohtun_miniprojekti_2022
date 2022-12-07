@@ -16,4 +16,4 @@ Create BibTeX File From Non Empty Storage
     User Input  @{PUBLISHER}
     User Input  3
     Run Application With Inputs
-    Output Should Contain  references.bib tiedosto luotu \n
+    Output Should Contain  references.bib tiedosto luotu sijaintiin ${EXECDIR}\n
