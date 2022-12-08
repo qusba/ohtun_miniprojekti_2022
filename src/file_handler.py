@@ -22,14 +22,16 @@ class FileHandler:
 
         if len(lines) > 0:
             for line in lines:
-                book_object = Bookref(str(line.split(";")[0]), line.split(";")[1],
-                                      line.split(";")[2], line.split(";")[3],
-                                      int(line.split(";")[4]), line.split(";")[5].strip())
-                if len(line.split(";")) > 6:
+                parts = line.split(";")
+                book_object = Bookref(
+                    str(parts[0]), parts[1], parts[2], int(parts[3]), parts[4], parts[5].strip())
+                    
+                if len(parts) > 6:
                     tags = []
-                    for i in range(6, len(line.split(";"))):
-                        tags.append(line.split(";")[i].strip())
+                    for i in range(6, len(parts)):
+                        tags.append(parts[i].strip())
                     book_object.set_tags(tags)
+                    
                 self.references.append(book_object)
         books_file.close()
         return self.references
@@ -38,9 +40,9 @@ class FileHandler:
         self.references = references
         with open(self.books_file_path, "w") as books_file:
             for reference in self.references:
-                str_to_write = str(reference.key+";"+reference.author_first_name+";"+
-                                    reference.author_last_name+";"+reference.title+";"+
-                                    str(reference.year)+";"+reference.publisher+"\n")
+                str_to_write = str(reference.key+";"+reference.author_first_name+";" +
+                                   reference.author_last_name+";"+reference.title+";" +
+                                   str(reference.year)+";"+reference.publisher+"\n")
                 if len(reference.get_tags()) > 0:
                     for tag in reference.get_tags():
                         str_to_write = str_to_write.strip()+";"+tag
@@ -51,8 +53,8 @@ class FileHandler:
     def write_ref_object_into_bibtext_file(self, ref_object, file_to_write):
         ref_object_fields = list(ref_object.__dict__.keys())
 
-        str_to_write = str("@"+ref_object.type+"{"+ref_object.key+",\n"+
-                            "    author = {"+ref_object.author_first_name+", "+ref_object.author_last_name+"},\n")
+        str_to_write = str("@"+ref_object.type+"{"+ref_object.key+",\n" +
+                           "    author = {"+ref_object.author_first_name+", "+ref_object.author_last_name+"},\n")
         for key in ref_object_fields[4:-1]:
             str_to_write = str_to_write + \
                 ("    "+key+" = {"+str(ref_object.__dict__[key])+"},\n")
