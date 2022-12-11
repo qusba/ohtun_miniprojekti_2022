@@ -16,16 +16,15 @@ class FileHandler:
     def read_book_refs_from_file(self):
         self.references = []
         # Format of the storage file:
-        # key;author;title;year;publisher
+        # key;author_first_name;author_last_name;title;year;publisher
         with open(self.books_file_path, "r") as books_file:
             lines = books_file.readlines()
 
         if len(lines) > 0:
             for line in lines:
                 book_object = Bookref(str(line.split(";")[0]), line.split(";")[1],
-                                      line.split(";")[2], int(
-                                          line.split(";")[3]),
-                                      line.split(";")[4].strip())
+                                      line.split(";")[2], line.split(";")[3],
+                                      int(line.split(";")[4]), line.split(";")[5].strip())
                 self.references.append(book_object)
         books_file.close()
         return self.references
@@ -34,16 +33,18 @@ class FileHandler:
         self.references = references
         with open(self.books_file_path, "w") as books_file:
             for reference in self.references:
-                str_to_write = str(reference.key+";"+reference.author+";"+reference.title+";" +
-                                   str(reference.year)+";"+reference.publisher+"\n")
+                str_to_write = str(reference.key+";"+reference.author_first_name+";"+
+                                    reference.author_last_name+";"+reference.title+";"+
+                                    str(reference.year)+";"+reference.publisher+"\n")
                 books_file.write(str_to_write)
             books_file.close()
 
     def write_ref_object_into_bibtext_file(self, ref_object, file_to_write):
         ref_object_fields = list(ref_object.__dict__.keys())
 
-        str_to_write = str("@"+ref_object.type+"{"+ref_object.key+",\n")
-        for key in ref_object_fields[2:]:
+        str_to_write = str("@"+ref_object.type+"{"+ref_object.key+",\n"+
+                            "    author = {"+ref_object.author_first_name+", "+ref_object.author_last_name+"},\n")
+        for key in ref_object_fields[4:-1]:
             str_to_write = str_to_write + \
                 ("    "+key+" = {"+str(ref_object.__dict__[key])+"},\n")
         str_to_write = str_to_write+"}\n\n"

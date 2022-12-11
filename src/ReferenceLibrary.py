@@ -23,7 +23,7 @@ class ReferenceLibrary:
         app.run()
 
     def print_references(self):
-        self._reference_handler.print_references()
+        self._reference_handler.print_references(self._file_handler.read_book_refs_from_file())
 
     def user_input(self, value):
         self.stub_io.input_value(value)

@@ -11,10 +11,46 @@ class App:
         self.referenceHandler = referencehandler
         self.referenceValidator = referencevalidator
 
+    def list_references(self):
+        while True:
+            self.io.write("Syötä 1 listataksesi kaikki viitteet")
+            self.io.write("Syötä 2 listataksesi viitteet aakkosjärjestykseen kirjoittajan sukunimen mukaan")
+            self.io.write("Syötä 3 listataksesi viitteet käänteiseen aakkosjärjestykseen kirjoittajan sukunimen mukaan")
+            self.io.write("Paina enter palataksesi edelliseen valikkoon")
+            command = self.io.read("Syötä komento: ")
+            if command == "1":
+                try:
+                    self.io.write("")
+                    self.referenceHandler.print_references(self.fileHandler.read_book_refs_from_file())
+                    self.io.write("")
+                except Exception as error:
+                    print(error)
+                    self.io.write("\nJotain meni vikaan \n")
+            if command == "2":
+                try:
+                    self.io.write("")
+                    self.referenceHandler.print_referencenses_in_alphabetical_order_by_author_surname()
+                    self.io.write("")
+                except Exception as error:
+                    print(error)
+                    self.io.write("\nJotain meni vikaan \n")
+            if command == "3":
+                try:
+                    self.io.write("")
+                    self.referenceHandler.print_referencenses_in_reverse_alphabetical_order_by_author_surname()
+                    self.io.write("")
+                except Exception as error:
+                    print(error)
+                    self.io.write("\nJotain meni vikaan \n")
+            if not command:
+                self.io.write("")
+                break
+
+
     def run(self):
         while True:
             self.io.write("Syötä 1 lisätäksesi viite")
-            self.io.write("Syötä 2 listataksesi kaikki viitteet")
+            self.io.write("Syötä 2 listataksesi viitteet")
             self.io.write("Syötä 3 luodaksesi bibtext tiedosto")
             self.io.write("Syötä 4 poistaaksesi viite avaimen perusteella")
             self.io.write("Paina enter lopettaaksesi")
@@ -37,8 +73,12 @@ class App:
                                             self.fileHandler.get_references()) == True:
                         self.io.write("\nTällä avaimella löytyy jo viite\n")
                         continue
-                    author = self.io.read("Kirjailija: ")
-                    if self.referenceValidator.is_input_empty(author):
+                    author_first_name = self.io.read("Kirjailija etunimi: ")
+                    if self.referenceValidator.is_input_empty(author_first_name):
+                        self.io.write("\nSyöte ei saa olla tyhjä\n")
+                        continue
+                    author_last_name = self.io.read("Kirjailija sukunimi: ")
+                    if self.referenceValidator.is_input_empty(author_last_name):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
                     title = self.io.read("Nimi: ")
@@ -58,18 +98,21 @@ class App:
                         continue
 
                     #Inputs go as parameters to the object generation methods
-                    self.referenceHandler.generate_book_reference_object([str(key), author, title,
-                                                                        int(year), publisher])
+                    self.referenceHandler.generate_book_reference_object([str(key), author_first_name, author_last_name,
+                                                                            title, int(year), publisher])
                     self.io.write("\nViite lisätty \n")
 
                 except Exception as error:
+                    print(error)
                     self.io.write("\nJotain meni vikaan \n")
             
             elif command == "2":
                 try:
-                    self.io.write("")
-                    self.referenceHandler.print_references()
-                    self.io.write("")
+                    self.list_references()
+                    #self.io.write("")
+                    #self.referenceHandler.print_referencenses_in_alphabetical_order_by_author_surname()
+                    #self.referenceHandler.print_references(self.fileHandler.read_book_refs_from_file())
+                    #self.io.write("")
                 except Exception as error:
                     self.io.write("\nJotain meni vikaan \n")
             

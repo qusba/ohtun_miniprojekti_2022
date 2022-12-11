@@ -10,7 +10,8 @@ Delete Reference From Empty Storage
 Delete Reference From Non Empty Storage
     User Input  1
     User Input  @{KEY}
-    User Input  @{AUTHOR}
+    User Input  @{AUTHOR_FIRST_NAME}
+    User Input  @{AUTHOR_LAST_NAME}
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
@@ -22,7 +23,8 @@ Delete Reference From Non Empty Storage
 Delete Reference With Non Existing Key
     User Input  1
     User Input  @{KEY}
-    User Input  @{AUTHOR}
+    User Input  @{AUTHOR_FIRST_NAME}
+    User Input  @{AUTHOR_LAST_NAME}
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}

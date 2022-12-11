@@ -10,7 +10,8 @@ Create BibTeX File From Empty Storage
 Create BibTeX File From Non Empty Storage
     User Input  1
     User Input  @{KEY}
-    User Input  @{AUTHOR}
+    User Input  @{AUTHOR_FIRST_NAME}
+    User Input  @{AUTHOR_LAST_NAME}
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
