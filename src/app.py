@@ -13,9 +13,10 @@ class App:
 
     def list_references(self):
         while True:
-            self.io.write("Syötä 1 listataksesi kaikki viitteet")
-            self.io.write("Syötä 2 listataksesi viitteet aakkosjärjestykseen kirjoittajan sukunimen mukaan")
-            self.io.write("Syötä 3 listataksesi viitteet käänteiseen aakkosjärjestykseen kirjoittajan sukunimen mukaan")
+            self.io.write("Syötä 1 listataksesi viitteet lisäysjärjestyksessä vanhin ensin")
+            self.io.write("Syötä 2 listataksesi viitteet lisäysjärjestyksessä uusin ensin")
+            self.io.write("Syötä 3 listataksesi viitteet aakkosjärjestykseen kirjoittajan sukunimen mukaan")
+            self.io.write("Syötä 4 listataksesi viitteet käänteiseen aakkosjärjestykseen kirjoittajan sukunimen mukaan")
             self.io.write("Paina enter palataksesi edelliseen valikkoon")
             command = self.io.read("Syötä komento: ")
             if command == "1":
@@ -29,7 +30,7 @@ class App:
             if command == "2":
                 try:
                     self.io.write("")
-                    self.referenceHandler.print_referencenses_in_alphabetical_order_by_author_surname()
+                    self.referenceHandler.print_references(self.referenceHandler.reverse_the_reference_list())
                     self.io.write("")
                 except Exception as error:
                     print(error)
@@ -37,7 +38,17 @@ class App:
             if command == "3":
                 try:
                     self.io.write("")
-                    self.referenceHandler.print_referencenses_in_reverse_alphabetical_order_by_author_surname()
+                    self.referenceHandler.print_references(
+                                    self.referenceHandler.sort_refs_to_alphabetical_order_by_author_surname())
+                    self.io.write("")
+                except Exception as error:
+                    print(error)
+                    self.io.write("\nJotain meni vikaan \n")
+            if command == "4":
+                try:
+                    self.io.write("")
+                    self.referenceHandler.print_references(
+                            self.referenceHandler.sort_refs_to_reverse_alphabetical_order_by_author_surname())
                     self.io.write("")
                 except Exception as error:
                     print(error)

@@ -34,13 +34,12 @@ class ReferenceHandler:
         sorted_references = sorted(self.references,key=lambda ref: ref.author_last_name)
         return sorted_references
 
-    def print_referencenses_in_alphabetical_order_by_author_surname(self):
-        self.print_references(self.sort_refs_to_alphabetical_order_by_author_surname())
-
     def sort_refs_to_reverse_alphabetical_order_by_author_surname(self):
         self.references = self.filehandler.read_book_refs_from_file()
         sorted_references = sorted(self.references,key=lambda ref: ref.author_last_name, reverse=True)
         return sorted_references
 
-    def print_referencenses_in_reverse_alphabetical_order_by_author_surname(self):
-        self.print_references(self.sort_refs_to_reverse_alphabetical_order_by_author_surname())
+    def reverse_the_reference_list(self):
+        self.references = self.filehandler.read_book_refs_from_file()
+        reversed_references = reversed(self.references)
+        return reversed_references
