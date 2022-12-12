@@ -29,6 +29,7 @@ class App:
                 #have different fields
                 try:
                     key = self.io.read("Avain: ")
+                    
                     if self.referenceValidator.is_input_empty(key):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
@@ -36,14 +37,17 @@ class App:
                                             self.fileHandler.get_references()) == True:
                         self.io.write("\nTällä avaimella löytyy jo viite\n")
                         continue
-                    author = self.io.read("Kirjailija: ")
+                    
+                    author = self.io.read("Kirjailija: ") 
                     if self.referenceValidator.is_input_empty(author):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
+                    
                     title = self.io.read("Nimi: ")
                     if self.referenceValidator.is_input_empty(title):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
+                    
                     year = self.io.read("Julkaisuvuosi: ")
                     if self.referenceValidator.is_input_empty(year):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
@@ -51,6 +55,7 @@ class App:
                     if not self.referenceValidator.is_input_a_number(year) or not self.referenceValidator.is_number_positive(year):
                         self.io.write("\nJulkaisuvuoden tulee olla positiivinen kokonaisluku\n")
                         continue
+                    
                     publisher = self.io.read("Julkaisija: ")
                     if self.referenceValidator.is_input_empty(publisher):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
