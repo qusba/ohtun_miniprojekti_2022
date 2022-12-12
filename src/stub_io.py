@@ -21,3 +21,6 @@ class StubIO:
     
     def get_outputs(self):
         return self.outputs
+    
+    def get_output_with_index(self, index):
+        return self.outputs[index]

@@ -85,18 +85,12 @@ class App:
                                             self.fileHandler.get_references()) == True:
                         self.io.write("\nTällä avaimella löytyy jo viite\n")
                         continue
-<<<<<<< HEAD
-                    
-                    author = self.io.read("Kirjailija: ") 
-                    if self.referenceValidator.is_input_empty(author):
-=======
                     author_first_name = self.io.read("Kirjailija etunimi: ")
                     if self.referenceValidator.is_input_empty(author_first_name):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
                     author_last_name = self.io.read("Kirjailija sukunimi: ")
                     if self.referenceValidator.is_input_empty(author_last_name):
->>>>>>> 9540b44ea4dcdec083389f00bf790eddabf5280a
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
                     
