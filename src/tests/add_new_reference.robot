@@ -5,7 +5,8 @@ Resource  resource.robot
 Add Book Reference
     User Input  1
     User Input  @{KEY}
-    User Input  @{AUTHOR}
+    User Input  @{AUTHOR_FIRST_NAME}
+    User Input  @{AUTHOR_LAST_NAME}
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
@@ -28,7 +29,8 @@ Add Book Reference With Only Whitespace Input
 Add Book Reference With Negative Year
     User Input  1
     User Input  @{KEY}
-    User Input  @{AUTHOR}
+    User Input  @{AUTHOR_FIRST_NAME}
+    User Input  @{AUTHOR_LAST_NAME}
     User Input  @{BOOK}
     User Input  -1
     User Input  @{PUBLISHER}
@@ -38,7 +40,8 @@ Add Book Reference With Negative Year
 Add Book Reference With String As Year
     User Input  1
     User Input  @{KEY}
-    User Input  @{AUTHOR}
+    User Input  @{AUTHOR_FIRST_NAME}
+    User Input  @{AUTHOR_LAST_NAME}
     User Input  @{BOOK}
     User Input  Otava
     User Input  @{PUBLISHER}
@@ -48,7 +51,8 @@ Add Book Reference With String As Year
 Add Book Reference With Existing Key
     User Input  1
     User Input  @{KEY}
-    User Input  @{AUTHOR}
+    User Input  @{AUTHOR_FIRST_NAME}
+    User Input  @{AUTHOR_LAST_NAME}
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}

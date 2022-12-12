@@ -6,8 +6,8 @@ class Test_ValidateReference(unittest.TestCase):
     
     def setUp(self):
         self.references = []
-        bookref1 = Bookref("avain1","kirjailija","title1",1,"kustantaja")
-        bookref2 = Bookref("avain2","kirjailija","title2",1,"kustantaja")
+        bookref1 = Bookref("avain1","kirjailija_etu","kirjailija_suku","title1",1,"kustantaja")
+        bookref2 = Bookref("avain2","kirjailija_etu","kirjailija_suku","title2",1,"kustantaja")
         self.references.append(bookref1)
         self.references.append(bookref2)
         self.validator = ValidateReference()
