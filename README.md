@@ -36,3 +36,5 @@
 * Antamalla ohjelmalle syötteen 4. ohjelma poistaa kirjaviitteen sille annetun avaimen perusteella.
 
 * Ohjelman sammuttaaksesi paina enteriä.
+
+
