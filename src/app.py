@@ -13,12 +13,9 @@ class App:
 
     def list_references(self):
         while True:
-            self.io.write("Syötä 1 listataksesi viitteet lisäysjärjestyksessä vanhin ensin")
-            self.io.write("Syötä 2 listataksesi viitteet lisäysjärjestyksessä uusin ensin")
-            self.io.write("Syötä 3 listataksesi viitteet aakkosjärjestykseen kirjoittajan sukunimen mukaan")
-            self.io.write("Syötä 4 listataksesi viitteet käänteiseen aakkosjärjestykseen kirjoittajan sukunimen mukaan")
-            self.io.write("Paina enter palataksesi edelliseen valikkoon")
+            self.io.reference_instructions() # prints instructions on how to list references
             command = self.io.read("Syötä komento: ")
+            
             if command == "1":
                 try:
                     self.io.write("")
@@ -60,12 +57,7 @@ class App:
 
     def run(self):
         while True:
-            self.io.write("Syötä 1 lisätäksesi viite")
-            self.io.write("Syötä 2 listataksesi viitteet")
-            self.io.write("Syötä 3 luodaksesi bibtext tiedosto")
-            self.io.write("Syötä 4 poistaaksesi viite avaimen perusteella")
-            self.io.write("Paina enter lopettaaksesi")
-            self.io.write("")
+            self.io.instructions() # prints instructions
             command = self.io.read("Syötä komento: ")
 
             if not command:
