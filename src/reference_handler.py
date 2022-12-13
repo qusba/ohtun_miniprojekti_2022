@@ -10,6 +10,9 @@ class ReferenceHandler:
     def get_references(self):
         return self.references
 
+    def set_references(self, references):
+        self.references = references
+
     # For every different ref object we need
     # different method because of the different
     #fields in references
@@ -24,6 +27,7 @@ class ReferenceHandler:
                                 int(inputs[4]), inputs[5])
         self.references.append(book_object)
         self.filehandler.write_book_refs_to_file(self.references)
+
 
     def print_references(self, references_to_print):
         for reference in references_to_print:

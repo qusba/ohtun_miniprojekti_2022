@@ -9,6 +9,9 @@ class Bookref:
         self.publisher = publisher
         self.tags = []
 
+    def set_tags(self, tags):
+        self.tags = tags
+
     def get_key(self):
         return self.key
 
@@ -26,6 +29,9 @@ class Bookref:
 
     def get_publisher(self):
         return self.publisher
+    
+    def get_tags(self):
+        return self.tags
 
     def __str__(self):
         return (f"\033[0;33mkey\033[0m: \033[1;31m{self.key}\033[0m, \033[0;33mauthor\033[0m: \033[1;32m{self.author_first_name}\033[0m, \033[1;32m{self.author_last_name}\033[0m, \033[0;33mtitle\033[0m: \033[1;34m{self.title}\033[0m, \033[0;33myear\033[0m: \033[1;35m{str(self.year)}\033[0m, \033[0;33mpublisher\033[0m: \033[1;36m{self.publisher}\033[0m")

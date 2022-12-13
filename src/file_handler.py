@@ -25,6 +25,11 @@ class FileHandler:
                 book_object = Bookref(str(line.split(";")[0]), line.split(";")[1],
                                       line.split(";")[2], line.split(";")[3],
                                       int(line.split(";")[4]), line.split(";")[5].strip())
+                if len(line.split(";")) > 6:
+                    tags = []
+                    for i in range(6, len(line.split(";"))):
+                        tags.append(line.split(";")[i].strip())
+                    book_object.set_tags(tags)
                 self.references.append(book_object)
         books_file.close()
         return self.references
@@ -36,6 +41,10 @@ class FileHandler:
                 str_to_write = str(reference.key+";"+reference.author_first_name+";"+
                                     reference.author_last_name+";"+reference.title+";"+
                                     str(reference.year)+";"+reference.publisher+"\n")
+                if len(reference.get_tags()) > 0:
+                    for tag in reference.get_tags():
+                        str_to_write = str_to_write.strip()+";"+tag
+                    str_to_write = str_to_write + "\n"
                 books_file.write(str_to_write)
             books_file.close()
 

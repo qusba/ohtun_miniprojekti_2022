@@ -1,5 +1,7 @@
 import os
 
+from file_handler import FileHandler
+
 class App:
     def __init__(self, io, filehandler, referencehandler, referencevalidator):
         self.io = io
@@ -33,7 +35,6 @@ class App:
                     self.referenceHandler.print_references(self.referenceHandler.reverse_the_reference_list())
                     self.io.write("")
                 except Exception as error:
-                    print(error)
                     self.io.write("\nJotain meni vikaan \n")
             if command == "3":
                 try:
@@ -42,7 +43,6 @@ class App:
                                     self.referenceHandler.sort_refs_to_alphabetical_order_by_author_surname())
                     self.io.write("")
                 except Exception as error:
-                    print(error)
                     self.io.write("\nJotain meni vikaan \n")
             if command == "4":
                 try:
@@ -51,7 +51,6 @@ class App:
                             self.referenceHandler.sort_refs_to_reverse_alphabetical_order_by_author_surname())
                     self.io.write("")
                 except Exception as error:
-                    print(error)
                     self.io.write("\nJotain meni vikaan \n")
             if not command:
                 self.io.write("")
@@ -115,6 +114,20 @@ class App:
                     #Inputs go as parameters to the object generation methods
                     self.referenceHandler.generate_book_reference_object([str(key), author_first_name, author_last_name,
                                                                             title, int(year), publisher])
+                    
+                    references = self.referenceHandler.get_references()
+                    latest_reference_object = references[-1]
+                    tags = []
+                    while True:
+                        tag = self.io.read("Tägi? (Paina enter viimeistelläksesi viitteen luonti): ")
+                        if not tag:
+                            break
+                        tags.append(tag)
+
+                    latest_reference_object.set_tags(tags)
+                    self.fileHandler.set_references(references)
+                    self.referenceHandler.set_references(references)
+                    self.fileHandler.write_book_refs_to_file(references)
                     self.io.write("\nViite lisätty \n")
 
                 except Exception as error:

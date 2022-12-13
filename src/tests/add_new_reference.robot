@@ -10,6 +10,7 @@ Add Book Reference
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
+    User Input  \
     Run Application With Inputs
     Print References
     Output Should Contain  \nViite lisätty \n
@@ -34,6 +35,7 @@ Add Book Reference With Negative Year
     User Input  @{BOOK}
     User Input  -1
     User Input  @{PUBLISHER}
+    User Input  \
     Run Application With Inputs
     Output Should Contain  \nJulkaisuvuoden tulee olla positiivinen kokonaisluku\n
 
@@ -45,6 +47,7 @@ Add Book Reference With String As Year
     User Input  @{BOOK}
     User Input  Otava
     User Input  @{PUBLISHER}
+    User Input  \
     Run Application With Inputs
     Output Should Contain  \nJulkaisuvuoden tulee olla positiivinen kokonaisluku\n
 
@@ -56,6 +59,7 @@ Add Book Reference With Existing Key
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
+    User Input  \
     Run Application With Inputs
     Output Should Contain  \nViite lisätty \n
 

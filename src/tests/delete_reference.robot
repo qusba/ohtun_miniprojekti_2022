@@ -15,6 +15,7 @@ Delete Reference From Non Empty Storage
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
+    User Input  \
     User Input  4
     User Input  Martin09
     Run Application With Inputs
@@ -28,6 +29,7 @@ Delete Reference With Non Existing Key
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
+    User Input  \
     User Input  4
     User Input  CantFindThis
     Run Application With Inputs

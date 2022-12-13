@@ -16,6 +16,7 @@ Print All References From Non Empty Storage
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
+    User Input  \
     User Input  2
     User Input  1
     Run Application With Inputs
@@ -30,6 +31,7 @@ Print All References In Reversed Order
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
+    User Input  \
     User Input  1
     User Input  @{SECOND_KEY}
     User Input  @{SECOND_AUTHOR_FIRST_NAME}
@@ -37,6 +39,7 @@ Print All References In Reversed Order
     User Input  @{SECOND_BOOK}
     User Input  @{YEAR}
     User Input  @{SECOND_PUBLISHER}
+    User Input  \
     User Input  2
     User Input  2
     Run Application With Inputs
@@ -51,6 +54,7 @@ Print All References In Alphabetical Order
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
+    User Input  \
     User Input  1
     User Input  @{SECOND_KEY}
     User Input  @{SECOND_AUTHOR_FIRST_NAME}
@@ -58,6 +62,7 @@ Print All References In Alphabetical Order
     User Input  @{SECOND_BOOK}
     User Input  @{YEAR}
     User Input  @{SECOND_PUBLISHER}
+    User Input  \
     User Input  2
     User Input  3
     Run Application With Inputs
@@ -72,6 +77,7 @@ Print All References In Reversed Alphabetical Order
     User Input  @{BOOK}
     User Input  @{YEAR}
     User Input  @{PUBLISHER}
+    User Input  \
     User Input  1
     User Input  @{SECOND_KEY}
     User Input  @{SECOND_AUTHOR_FIRST_NAME}
@@ -79,6 +85,7 @@ Print All References In Reversed Alphabetical Order
     User Input  @{SECOND_BOOK}
     User Input  @{YEAR}
     User Input  @{SECOND_PUBLISHER}
+    User Input  \
     User Input  2
     User Input  4
     Run Application With Inputs
