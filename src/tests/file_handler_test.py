@@ -24,6 +24,14 @@ class Test_FileHandler(unittest.TestCase):
         self.assertEqual(len(bookrefs),1)
         self.assertEqual(type(book),type(bookrefs[0]))
     
+    def test_read_book_references_when_there_are_tags(self):
+        file = open(self.path,"w")
+        file.write("Testiavain;Testikirjailija_etunimi;Testikirjailija_sukunimi;Testititle;1999;Testikustantaja;Fiktio"+"\n")
+        file.close()
+        bookrefs = self.mock_filehandler.read_book_refs_from_file()
+        self.assertEqual(bookrefs[0].get_tags(), ["Fiktio"])
+        
+
     def test_writing_book_references_without_a_new_ref_returns_all_old_refs(self):
         file = open(self.path,"w")
         file.write("Testiavain;Testikirjailija_etunimi;Testikirjailija_sukunimi;Testititle;1999;Testikustantaja"+"\n"
