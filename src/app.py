@@ -1,7 +1,5 @@
 import os
 
-from file_handler import FileHandler
-
 class App:
     def __init__(self, io, filehandler, referencehandler, referencevalidator):
         self.io = io
@@ -63,6 +61,7 @@ class App:
             self.io.write("Syötä 2 listataksesi viitteet")
             self.io.write("Syötä 3 luodaksesi bibtext tiedosto")
             self.io.write("Syötä 4 poistaaksesi viite avaimen perusteella")
+            self.io.write("Syötä 5 lisätäksesi johonkin viitteeseen tägejä")
             self.io.write("Paina enter lopettaaksesi")
             self.io.write("")
             command = self.io.read("Syötä komento: ")
@@ -162,5 +161,31 @@ class App:
                         self.io.write("Ei vastaavaa viitettä \n")
                     else:
                         self.io.write("Viite poistettu \n")
+                except Exception as error:
+                    self.io.write("\nJotain meni vikaan \n")
+
+            elif command == "5":
+                try:
+                    key = self.io.read("Anna viitteen avain minkä haluat tägätä: ")
+                    references = self.referenceHandler.get_references()
+                    keys = [ref.get_key() for ref in references]
+                    if key not in keys:
+                        self.io.write("Ei vastaavaa viitettä \n")
+                        continue
+                    ref_to_tag = next(ref for ref in references if ref.get_key() == key)
+                    #ref_to_tag = lambda ref: ref.get_key() == key for ref in references
+                    tags = ref_to_tag.get_tags()
+                    while True:
+                        tag = self.io.read("Tägi? (Paina enter viimeistelläksesi viitteen luonti): ")
+                        if not tag:
+                            break
+                        tags.append(tag)
+
+                    ref_to_tag.set_tags(tags)
+                    self.fileHandler.set_references(references)
+                    self.referenceHandler.set_references(references)
+                    self.fileHandler.write_book_refs_to_file(references)
+                    self.io.write("\nTägit lisätty \n")
+
                 except Exception as error:
                     self.io.write("\nJotain meni vikaan \n")
