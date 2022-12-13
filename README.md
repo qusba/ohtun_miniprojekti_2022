@@ -21,18 +21,31 @@
 * Kirjoita komentoriville: poetry run python3 src/index.py
 
 #### Käyttöohje
-* Ohjelma pyytää syöttämään luvun 1, 2, 3 tai 4. 
+* Ohjelma pyytää syöttämään luvun 1, 2, 3, 4 tai 5
 * Antamalla ohjelmalle syötteen 1. Ohjelma luo uudeen kirjaviitteen: Luodakseen kirjaviitteen ohjelma pyytää syöttämään järjestyksessä:
     * Avaimen, joka ei ole vielä käytössä, muuten ohjelma ilmoittaa: "Tällä avaimella löytyy jo viite"
-    * Kirjailijan nimen
+    * Kirjailijan etunimen
+    * Kirjailijan sukunimen
     * Kirjan nimen
-    * Julkaisuvuoden
-    * Julkaisijan
+    * Kirjan julkaisuvuoden
+    * Kirjan julkaisijan
+    * Tägin, joita voi lisätä useita, mutta yksi kerrallaan
+    * Painamaan enteriä viitteen luomiseksi
 
-* Antamalla ohjelmalle syötteen 2. ohjelma tulostaa listan tiedostoon lisätyistä kirjaviitteistä värikoodattuna
+* Antamalla ohjelmalle syötteen 2. ohjelma tulostaa listan tiedostoon lisätyistä kirjaviitteistä annetun syötteen perusteella:
+    * Annettaessa syöte 1.: Ohjelma tulostaa kirjaviitteet lisäysjärjestyksessä vanhinpana lisätty viite ensin.
+    * Annettaessa syöte 2.: Ohjelma tulostaa kirjaviitteet lisäysjärjesteyksessä viimeisimpänä lisätty viite ensin.
+    * Annettaessa syöte 3.: Ohjelma tulostaa kirjaviitteet aakkosjärjestyksessä kirjailijan sukunimen mukaan.
+    * Annettaessa syöte 4.: Ohjelma tulostaa kirjaviitteet käänteisessä aakkosjärjestyksessä kirjailijan sukunimen mukaan.
+    * Painamalla enter pääsee takaisin alkuperäiseen valikkoon, jossa voi valita syötteistä 1, 2, 3, 4 tai 5 mitä haluaa tehdä.
 
 * Antamalla ohjelmalle syötteen 3. ohjelma luo jo valmiiksi tiedostossa olevista kirjaviitteistä BibTeX-muotoisen tiedoston
 
 * Antamalla ohjelmalle syötteen 4. ohjelma poistaa kirjaviitteen sille annetun avaimen perusteella.
+    * Ohjelma pyytää syöttämään poistettavan kirjaviitteen avaimen ja poistaa viitteen
+
+* Antamalla ohjelmalle syötteen 5. ohjelma lisää tägin jo valmiiksi olemassa olevaan kirjaviitteeseen
+    * Ohjelma pyytää syöttämään tägättävän kirjavitteen avaimen ja sen jälkeen annettavan tägin
+    * Painamalla enter pääsee takaisin alkuperäiseen valikkoon
 
 * Ohjelman sammuttaaksesi paina enteriä.
