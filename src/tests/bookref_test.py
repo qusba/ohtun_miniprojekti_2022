@@ -24,4 +24,4 @@ class Test_Bookref(unittest.TestCase):
 
     def test_tag_setter_sets_tags(self):
         self.bookref.set_tags(self.tags)
-        self.assertEqual(self.bookref.get_tags()[0], "Fiktio")
+        self.assertEqual(self.bookref.get_tags(), self.tags)
