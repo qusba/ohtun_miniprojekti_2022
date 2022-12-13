@@ -108,3 +108,24 @@ class Test_FileHandler(unittest.TestCase):
         refs = self.mock_filehandler.read_book_refs_from_file()
         self.assertEqual(len(refs),1)
         self.assertEqual(refs[0].get_key(),"Testiavain")
+
+    def test_add_tag_in_reference_creation_and_read_references(self):
+        file = open(self.path, "w")
+        file.write("Testiavain;Testikirjailija_etu;Testikirjailija_suku;Testititle;1999;Testikustantaja;Testitag"+"\n")
+        file.close()
+        bookrefs = self.mock_filehandler.read_book_refs_from_file()
+        self.assertEqual(len(bookrefs), 1)
+        self.assertEqual(bookrefs[0].get_tags(), ["Testitag"])
+
+    def test_add_tag_in_reference_creation_and_write_references(self):
+        file = open(self.path, "w")
+        file.write("Testiavain;Testikirjailija_etu;Testikirjailija_suku;Testititle;1999;Testikustantaja;Testitag"+"\n")
+        file.close()
+        refs_in_the_beginning = self.mock_filehandler.read_book_refs_from_file()
+        self.mock_filehandler.write_book_refs_to_file(refs_in_the_beginning)
+        refs_in_the_end = self.mock_filehandler.get_references()
+        self.assertEqual(len(refs_in_the_beginning), 1)
+        self.assertEqual(len(refs_in_the_end), 1)
+        self.assertEqual(len(refs_in_the_beginning), len(refs_in_the_end))
+        self.assertEqual(refs_in_the_beginning, refs_in_the_end)
+        self.assertEqual(refs_in_the_end[0].get_tags(), ["Testitag"])
