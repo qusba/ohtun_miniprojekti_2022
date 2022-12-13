@@ -13,3 +13,4 @@ Library  ../ReferenceLibrary.py
 @{SECOND_AUTHOR_LAST_NAME}   Arvuuttaja
 @{SECOND_BOOK}  Testikirja
 @{SECOND_PUBLISHER}  Otava
+@{TAG}  Testitag
