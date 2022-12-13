@@ -24,14 +24,14 @@ class FileHandler:
             for line in lines:
                 parts = line.split(";")
                 book_object = Bookref(
-                    str(parts[0]), parts[1], parts[2], int(parts[3]), parts[4], parts[5].strip())
-                    
+                    str(parts[0]), parts[1], parts[2], parts[3], int(parts[4]), parts[5].strip())
+
                 if len(parts) > 6:
                     tags = []
                     for i in range(6, len(parts)):
                         tags.append(parts[i].strip())
                     book_object.set_tags(tags)
-                    
+
                 self.references.append(book_object)
         books_file.close()
         return self.references
