@@ -23,16 +23,20 @@ class ReferenceLibrary:
         app.run()
 
     def print_references(self):
-        self._reference_handler.print_references(self._file_handler.read_book_refs_from_file())
-    
+        self._reference_handler.print_references(
+            self._file_handler.read_book_refs_from_file())
+
     def print_reversed_references(self):
-        self._reference_handler.print_references(self._reference_handler.reverse_the_reference_list())
-    
+        self._reference_handler.print_references(
+            self._reference_handler.reverse_the_reference_list())
+
     def print_references_in_alphabetical_order(self):
-        self._reference_handler.print_references(self._reference_handler.sort_refs_to_alphabetical_order_by_author_surname())
-    
+        self._reference_handler.print_references(
+            self._reference_handler.sort_refs_to_alphabetical_order_by_author_surname())
+
     def print_references_in_reversed_alphabetical_order(self):
-        self._reference_handler.print_references(self._reference_handler.sort_refs_to_reverse_alphabetical_order_by_author_surname())
+        self._reference_handler.print_references(
+            self._reference_handler.sort_refs_to_reverse_alphabetical_order_by_author_surname())
 
     def user_input(self, value):
         self.stub_io.input_value(value)
@@ -43,7 +47,7 @@ class ReferenceLibrary:
             raise AssertionError(
                 f'Output \"{value}\" is not in {str(outputs)}'
             )
-    
+
     def first_reference_should_be(self, value):
         first_reference = self.stub_io.get_output_with_index(-2)
         if not value == str(first_reference):

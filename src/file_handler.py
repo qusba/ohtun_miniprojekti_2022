@@ -2,7 +2,6 @@ from refclasses.bookref import Bookref
 
 
 class FileHandler:
-    # FileHandler takes the paths to the storage files as parameters
     def __init__(self, books_file_path):
         self.references = []
         self.books_file_path = books_file_path
@@ -38,9 +37,9 @@ class FileHandler:
         self.references = references
         with open(self.books_file_path, "w") as books_file:
             for reference in self.references:
-                str_to_write = str(reference.key+";"+reference.author_first_name+";"+
-                                    reference.author_last_name+";"+reference.title+";"+
-                                    str(reference.year)+";"+reference.publisher+"\n")
+                str_to_write = str(reference.key+";"+reference.author_first_name+";" +
+                                   reference.author_last_name+";"+reference.title+";" +
+                                   str(reference.year)+";"+reference.publisher+"\n")
                 if len(reference.get_tags()) > 0:
                     for tag in reference.get_tags():
                         str_to_write = str_to_write.strip()+";"+tag
@@ -51,8 +50,8 @@ class FileHandler:
     def write_ref_object_into_bibtext_file(self, ref_object, file_to_write):
         ref_object_fields = list(ref_object.__dict__.keys())
 
-        str_to_write = str("@"+ref_object.type+"{"+ref_object.key+",\n"+
-                            "    author = {"+ref_object.author_first_name+", "+ref_object.author_last_name+"},\n")
+        str_to_write = str("@"+ref_object.type+"{"+ref_object.key+",\n" +
+                           "    author = {"+ref_object.author_first_name+", "+ref_object.author_last_name+"},\n")
         for key in ref_object_fields[4:-1]:
             str_to_write = str_to_write + \
                 ("    "+key+" = {"+str(ref_object.__dict__[key])+"},\n")
@@ -70,7 +69,6 @@ class FileHandler:
             return 1
 
     def remove_reference_from_file(self, ref_key):
-        # this method removes the wanted reference from the list and then rewrites the csv file without it
         ref_list = self.read_book_refs_from_file()
         rem_success = False
         for ref in ref_list:
@@ -83,6 +81,5 @@ class FileHandler:
         return rem_success
 
     def clear_for_rewrite(self):
-        # opening a csv file like this removes the content of the file
         with open(self.books_file_path, "w+") as books_file:
             books_file.close()

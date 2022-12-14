@@ -29,23 +29,19 @@ class Bookref:
 
     def get_publisher(self):
         return self.publisher
-    
+
     def get_tags(self):
         return self.tags
 
     def __str__(self):
         if len(self.tags) == 0:
-            return (f"\033[0;33mkey\033[0m: \033[1;31m{self.key}\033[0m, \033[0;33mauthor\033[0m: \033[1;32m{self.author_first_name}\033[0m, \033[1;32m{self.author_last_name}\033[0m, \033[0;33mtitle\033[0m: \033[1;34m{self.title}\033[0m, \033[0;33myear\033[0m: \033[1;35m{str(self.year)}\033[0m, \033[0;33mpublisher\033[0m: \033[1;36m{self.publisher}\033[0m")
-        else:
-            tags = self.tags_as_str()
-            return (f"\033[0;33mkey\033[0m: \033[1;31m{self.key}\033[0m, \033[0;33mauthor\033[0m: \033[1;32m{self.author_first_name}\033[0m, \033[1;32m{self.author_last_name}\033[0m, \033[0;33mtitle\033[0m: \033[1;34m{self.title}\033[0m, \033[0;33myear\033[0m: \033[1;35m{str(self.year)}\033[0m, \033[0;33mpublisher\033[0m: \033[1;36m{self.publisher}\033[0m, \033[0;33mtagit\033[0m: \033[1;37m{tags}\033[0m ")
+            return f"\033[0;33mkey\033[0m: \033[1;31m{self.key}\033[0m, \033[0;33mauthor\033[0m: \033[1;32m{self.author_first_name}\033[0m, \033[1;32m{self.author_last_name}\033[0m, \033[0;33mtitle\033[0m: \033[1;34m{self.title}\033[0m, \033[0;33myear\033[0m: \033[1;35m{str(self.year)}\033[0m, \033[0;33mpublisher\033[0m: \033[1;36m{self.publisher}\033[0m"
+        tags = self.tags_as_str()
+        return f"\033[0;33mkey\033[0m: \033[1;31m{self.key}\033[0m, \033[0;33mauthor\033[0m: \033[1;32m{self.author_first_name}\033[0m, \033[1;32m{self.author_last_name}\033[0m, \033[0;33mtitle\033[0m: \033[1;34m{self.title}\033[0m, \033[0;33myear\033[0m: \033[1;35m{str(self.year)}\033[0m, \033[0;33mpublisher\033[0m: \033[1;36m{self.publisher}\033[0m, \033[0;33mtagit\033[0m: \033[1;37m{tags}\033[0m"
 
     def tags_as_str(self):
         return_string = ""
         for tag in self.tags:
-            return_string = return_string + str(tag) + ", " 
+            return_string = return_string + str(tag) + ", "
         return_string = return_string[:-2]
         return return_string
-
-    def __lt__(self, other):
-        return self.author < other.author

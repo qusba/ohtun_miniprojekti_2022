@@ -85,8 +85,7 @@ class App:
                     if self.referenceValidator.is_input_empty(key):
                         self.io.write("\nSyöte ei saa olla tyhjä\n")
                         continue
-                    if self.referenceValidator.does_this_key_already_exist(str(key),
-                                                                           self.fileHandler.get_references()) == True:
+                    if self.referenceValidator.does_this_key_already_exist(str(key), self.fileHandler.get_references()) == True:
                         self.io.write("\nTällä avaimella löytyy jo viite\n")
                         continue
                     author_first_name = self.io.read("Kirjailija etunimi: ")
