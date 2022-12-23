@@ -1,4 +1,5 @@
 # ohtun_miniprojekti_2022
+
 ## Harmaa ryhmä
 
 [Loppuraportti](https://docs.google.com/document/d/1aPiCDaj-eSyMlc4cHEsy6Xs8pbnhsTw2e1hg8kxBDvA/edit)

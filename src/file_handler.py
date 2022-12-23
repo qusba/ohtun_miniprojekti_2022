@@ -21,14 +21,16 @@ class FileHandler:
 
         if len(lines) > 0:
             for line in lines:
-                book_object = Bookref(str(line.split(";")[0]), line.split(";")[1],
-                                      line.split(";")[2], line.split(";")[3],
-                                      int(line.split(";")[4]), line.split(";")[5].strip())
-                if len(line.split(";")) > 6:
+                parts = line.split(";")
+                book_object = Bookref(
+                    str(parts[0]), parts[1], parts[2], parts[3], int(parts[4]), parts[5].strip())
+
+                if len(parts) > 6:
                     tags = []
-                    for i in range(6, len(line.split(";"))):
-                        tags.append(line.split(";")[i].strip())
+                    for i in range(6, len(parts)):
+                        tags.append(parts[i].strip())
                     book_object.set_tags(tags)
+
                 self.references.append(book_object)
         books_file.close()
         return self.references
