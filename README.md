@@ -1,6 +1,8 @@
 # ohtun_miniprojekti_2022
 ## Harmaa ryhmä
 
+[Loppuraportti](https://docs.google.com/document/d/1aPiCDaj-eSyMlc4cHEsy6Xs8pbnhsTw2e1hg8kxBDvA/edit)
+
 [Product- ja Sprint backlog](https://docs.google.com/spreadsheets/d/1dSeB2DVMEAkoBBqOm-5AjHcTrGz0yfAUg2ushvxjXvA/edit#gid=0)
 
 ![Status Badge](https://github.com/qusba/ohtun_miniprojekti_2022/workflows/CI/badge.svg)
